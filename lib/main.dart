@@ -1,9 +1,10 @@
-import 'package:amazon/utils/themes/theme.dart';
-import 'package:amazon/view/auth_screen/auth_screen.dart';
+import 'package:amazon/core/themes/theme.dart';
+import 'package:amazon/features/auth/presentation/auth_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(const Amazon());
+  runApp(ProviderScope(child: const Amazon()));
 }
 
 class Amazon extends StatelessWidget {

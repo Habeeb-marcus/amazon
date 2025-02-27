@@ -1,5 +1,5 @@
-import 'package:amazon/utils/colors.dart';
-import 'package:amazon/utils/size_calculator.dart';
+import 'package:amazon/core/themes/colors.dart';
+import 'package:amazon/core/utils/size_calculator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -22,7 +22,7 @@ class GeneralTextField extends StatelessWidget {
   final int? maxLength;
   final List<TextInputFormatter>? inputFormatters;
   const GeneralTextField({
-    Key? key,
+    super.key,
     this.hintText,
     this.obscureText = false,
     this.prefixIcon,
@@ -41,11 +41,11 @@ class GeneralTextField extends StatelessWidget {
     this.inputFormatters,
     this.maxLength,
     this.onChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    var _controller = TextEditingController();
+    var controller = TextEditingController();
     return SizedBox(
       height: sizer(false, 30, context),
       child: Container(
@@ -66,7 +66,7 @@ class GeneralTextField extends StatelessWidget {
           maxLength: maxLength,
 
           textCapitalization: textCapitalization ?? TextCapitalization.none,
-          controller: textController ?? _controller,
+          controller: textController ?? controller,
           onSaved: onSaved,
           onChanged: onChanged,
           textAlignVertical: TextAlignVertical.center, // textAlignVertical,
