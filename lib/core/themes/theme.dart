@@ -1,27 +1,25 @@
-import 'package:amazon/utils/colors.dart';
-import 'package:amazon/utils/themes/custom_themes/appBar_theme.dart';
-import 'package:amazon/utils/themes/custom_themes/text_theme.dart';
+import 'package:amazon/core/themes/colors.dart';
+import 'package:amazon/core/themes/custom_themes/app_bar_theme.dart';
+import 'package:amazon/core/themes/custom_themes/text_theme.dart';
 import 'package:flutter/material.dart';
 
-class TAppTheme{
+class TAppTheme {
   TAppTheme._();
 
   static ThemeData lightTheme = ThemeData(
-  colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow.shade100),
-  useMaterial3: true,
-  textTheme: TTextTheme.lightTextTheme,
-  appBarTheme: TAppBarTheme.lightAppBarTheme,
-scaffoldBackgroundColor:  AppColors.lightGrey,
-   );
-
-  static ThemeData darkTheme = ThemeData(
-  colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow.shade100,brightness: Brightness.dark),
-  useMaterial3: true,
-  textTheme: TTextTheme.darkTextTheme,
-  appBarTheme: TAppBarTheme.darkAppBarTheme
+    colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow.shade100),
+    useMaterial3: true,
+    textTheme: TTextTheme.lightTextTheme,
+    appBarTheme: TAppBarTheme.lightAppBarTheme,
+    scaffoldBackgroundColor: AppColors.lightGrey,
   );
 
-
+  static ThemeData darkTheme = ThemeData(
+      colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.yellow.shade100, brightness: Brightness.dark),
+      useMaterial3: true,
+      textTheme: TTextTheme.darkTextTheme,
+      appBarTheme: TAppBarTheme.darkAppBarTheme);
 }
 
 // ThemeData theme = ThemeData(
