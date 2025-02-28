@@ -1,3 +1,4 @@
+import 'package:amazon/core/router/app_router.dart';
 import 'package:amazon/providers/auth_provider.dart';
 import 'package:amazon/shared/components/general_text_field.dart';
 import 'package:amazon/shared/components/text_button.dart';
@@ -20,6 +21,8 @@ class _AuthFormState extends ConsumerState<AuthForm> {
       TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailForSignInController =
+      TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -31,7 +34,9 @@ class _AuthFormState extends ConsumerState<AuthForm> {
         children: [
           widget.isNewUser ? createUserForm() : signInUserForm(),
           CustomTextButton(
-            buttonFunction: () {},
+            buttonFunction: () {
+              Navigator.pushNamed(context, AppRouter.otpPageRoute);
+            },
             buttonText: "Continue",
           ),
           SizedBox(
@@ -151,9 +156,6 @@ class _AuthFormState extends ConsumerState<AuthForm> {
                 activeColor: AppColors.blue,
                 onChanged: (value) {
                   ref.read(obscurePasswordProvider.notifier).state = !value!;
-                  print('obscurePassword chNGED value IS : $value');
-                  print(
-                      'obscurePassword chNGED value IS : ${ref.watch(obscurePasswordProvider)}');
                 },
               ),
               Text(
@@ -169,12 +171,11 @@ class _AuthFormState extends ConsumerState<AuthForm> {
   }
 
   Widget signInUserForm() {
-    bool isChecked = false;
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       buildLabel("Email or phone number"),
       GeneralTextField(
-          // obscureText: ref.watch(obscurePasswordProvider),
-          ),
+        textController: _emailForSignInController,
+      ),
       SizedBox(
         height: sizer(false, 8, context),
       ),

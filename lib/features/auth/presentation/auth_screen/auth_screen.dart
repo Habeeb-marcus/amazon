@@ -1,11 +1,7 @@
 import 'package:amazon/features/auth/presentation/widgets/auth_login_container.dart';
 import 'package:amazon/features/auth/presentation/widgets/auth_register_container.dart';
 import 'package:amazon/providers/auth_provider.dart';
-import 'package:amazon/shared/components/general_text_field.dart';
 import 'package:amazon/core/constants/enum.dart';
-import 'package:amazon/core/themes/colors.dart';
-import 'package:amazon/core/utils/size_calculator.dart';
-import 'package:amazon/features/auth/presentation/widgets/auth_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
