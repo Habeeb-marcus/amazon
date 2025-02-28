@@ -82,8 +82,8 @@ class _CustomTextButtonState extends State<CustomTextButton> {
                     child: Text(widget.buttonText ?? '',
                         style: TextStyle(
                             color: AppColors.blackColor,
-                            fontSize: sizer(true, 13, context),
-                            fontWeight: FontWeight.w500))),
+                            fontSize: sizer(true, 13.6, context),
+                            fontWeight: FontWeight.w400))),
           ),
         ));
   }

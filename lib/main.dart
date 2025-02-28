@@ -1,5 +1,6 @@
+import 'package:amazon/core/router/app_router.dart';
 import 'package:amazon/core/themes/theme.dart';
-import 'package:amazon/features/auth/presentation/auth_screen.dart';
+import 'package:amazon/features/auth/presentation/auth_screen/auth_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -20,6 +21,7 @@ class Amazon extends StatelessWidget {
       darkTheme: TAppTheme.darkTheme,
       themeMode: ThemeMode.light,
       home: const AuthScreen(),
+      onGenerateRoute: AppRouter().generateRoute,
     );
   }
 }
