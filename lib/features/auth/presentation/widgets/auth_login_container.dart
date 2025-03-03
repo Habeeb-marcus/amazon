@@ -64,9 +64,7 @@ class AuthLoginContainer extends ConsumerWidget {
           ),
           authOption.index == 0
               ? AuthForm(isNewUser: false)
-              : Container(
-                  height: 0,
-                ),
+              : SizedBox.shrink(),
         ],
       ),
     );

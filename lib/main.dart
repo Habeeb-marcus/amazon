@@ -1,10 +1,17 @@
 import 'package:amazon/core/router/app_router.dart';
 import 'package:amazon/core/themes/theme.dart';
 import 'package:amazon/features/auth/presentation/auth_screen/auth_screen.dart';
+import 'package:amazon/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() {
+Future<void> main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+);
   runApp(ProviderScope(child: const Amazon()));
 }
 

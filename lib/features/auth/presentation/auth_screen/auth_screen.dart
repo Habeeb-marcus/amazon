@@ -1,3 +1,4 @@
+import 'package:amazon/features/auth/presentation/widgets/auth_footer.dart';
 import 'package:amazon/features/auth/presentation/widgets/auth_login_container.dart';
 import 'package:amazon/features/auth/presentation/widgets/auth_register_container.dart';
 import 'package:amazon/providers/auth_provider.dart';
@@ -19,31 +20,36 @@ class AuthScreen extends ConsumerWidget {
             height: height * 0.04),
       ),
       body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          children: [
-            Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-              Text('Welcome', style: Theme.of(context).textTheme.titleMedium),
-            ]),
-            Container(
-              decoration: BoxDecoration(),
-              child: Column(
-                children: [
-                  InkWell(
-                    onTap: () {
-                      ref.read(authOptionProvider.notifier).state =
-                          AuthOption.register;
-                    },
-                    child: AuthRegisterContainer(),
-                  ),
-                  AuthLoginContainer()
-                ],
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                  Text('Welcome', style: Theme.of(context).textTheme.titleMedium),
+                ]),
               ),
-            ),
-          ],
-        ),
-      )),
+              Padding(
+                padding: const EdgeInsets.all(13.0),
+                child: Container(
+                  decoration: BoxDecoration(),
+                  child: Column(
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          ref.read(authOptionProvider.notifier).state =
+                              AuthOption.register;
+                        },
+                        child: AuthRegisterContainer(),
+                      ),
+                      AuthLoginContainer()
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 16),
+              AuthFooter()
+            ],
+          )),
     );
   }
 }
